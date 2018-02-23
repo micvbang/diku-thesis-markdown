@@ -11,3 +11,6 @@
 4. ??
 
 5. Graduate
+
+# Credits
+Thanks to @j08lue for the repo: https://github.com/j08lue/ku-thesis
