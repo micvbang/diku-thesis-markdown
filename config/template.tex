@@ -1,0 +1,116 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+
+% -----------------
+% START OF PREAMBLE
+% -----------------
+\documentclass[12pt, a4paper]{report}
+
+% KU-forside
+\usepackage[usenames]{color}
+\usepackage[titelside, en, nat]{config/ku-forside}
+\usepackage[backend=bibtex, citestyle=ieee]{biblatex}
+\usepackage{lastpage, fancyhdr, hyperref}
+\usepackage[left=126pt,
+            right=126pt,
+            top=126pt,
+            bottom=126pt]{geometry}
+\usepackage[toc,page]{appendix}
+
+\widowpenalty10000
+\clubpenalty10000
+
+% Required for syntax highlighting
+$if(highlighting-macros)$
+  $highlighting-macros$
+$endif$
+
+\def\tightlist{}
+
+% Don't let images overflow the page
+% Can still explicit set width/height/options for an image
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+
+% Make links footnotes instead of hotlinks
+$if(links-as-notes)$
+  \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$if(title)$
+    \titel{$title$}
+$endif$
+$if(subtitle)$
+    \undertitel{$subtitle$}
+$endif$
+$if(assignment)$
+    \opgave{$assignment$}
+$endif$
+$if(author)$
+    \forfatter{$author$}
+$endif$
+$if(date)$
+    \dato{$date$}
+$endif$
+$if(supervisor)$
+    \vejleder{Supervisor: $supervisor$}
+$endif$
+
+% -----------------
+%  END OF PREAMBLE
+% -----------------
+\begin{document}
+
+\maketitle
+\clearpage
+
+% -----------------
+% FRONTMATTER
+% -----------------
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+$if(abstract)$
+    \begin{abstract}
+        \input{$abstract$}
+    \end{abstract}
+$endif$
+
+
+$if(toc)$
+{
+    $if(colorlinks)$
+        \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+    $endif$
+    \setcounter{tocdepth}{$toc-depth$}
+    \tableofcontents
+    }
+$endif$
+
+$if(lot)$
+    \listoftables
+$endif$
+
+$if(lof)$
+    \listoffigures
+$endif$
+
+\newpage
+% chapter: 0, section: 1, subsection: 2 etc
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+$body$
+
+\end{document}

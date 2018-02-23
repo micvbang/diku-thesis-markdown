@@ -1,0 +1,46 @@
+---
+link-citations: true
+
+# Add numbering to sections. Required by pandoc-crossref.
+chapters: false
+numberSections: false
+
+# Prefixes for references.
+secPrefix:
+    - "Section"
+    - "Sections"
+figPrefix:
+    - "Figure"
+    - "Figures"
+lstPrefix:
+    - "Listing"
+    - "Listings"
+tblPrefix:
+    - "Table"
+    - "Tables"
+
+# Allow captions for codeblocks
+codeBlockCaptions: true
+
+# Bibliography
+bibliography: bibliography.bibtex
+csl: config/ieee.csl
+reference-section-title: References
+
+header-includes:
+   - \setlength\parindent{0pt} # Remove indenting of beginning-of-paragraph.
+   - \usepackage{longtable}
+   - \usepackage{booktabs}
+   - \usepackage{graphicx}
+   - \usepackage{changepage}
+   - \usepackage[table]{xcolor}
+
+# Front page
+abstract: abstract.md
+title: This is the report title
+subtitle: Very nice subtitle
+author: Your name  -- \texttt{your@email.haps}
+assignment: Master's Thesis
+date: March 5th 2017
+supervisor: Your Supervisor's Name
+---
